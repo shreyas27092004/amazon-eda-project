@@ -15,20 +15,6 @@ This is a straightforward web application for doing Exploratory Data Analysis (E
     - A bar chart showing the average user rating for those top categories.
     - An insight into how product discounts relate to ratings.
 
-## Project Structure
-
-.
-├── app.py              # Flask backend server
-├── data/
-│   └── amazon.csv      # The dataset file
-├── static/
-│   ├── script.js       # Frontend JavaScript
-│   └── style.css       # Custom CSS styles
-├── templates/
-│   └── index.html      # Main HTML page
-├── requirements.txt    # Python dependencies
-└── README.md           # This file
-
 ## How to Run
 
 Follow these steps to run the application on your local machine.
