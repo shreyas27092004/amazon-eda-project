@@ -1,44 +1,84 @@
-# Amazon Product Data Explorer
 
-This is a straightforward web application for doing Exploratory Data Analysis (EDA) on an Amazon sales dataset. The application has a Flask (Python) backend and a modern HTML/CSS/JavaScript frontend.
+## Amazon Product Data Explorer
 
-## Features
+A simple web application for performing **Exploratory Data Analysis (EDA)** on an Amazon sales dataset.
+The backend is built with **Flask (Python)** and the frontend uses **HTML, CSS, and JavaScript**.
 
-- **One-Click Analysis**: A simple user interface to start the data analysis.
-- **Dynamic Visualizations**: Key insights appear in clear tables and interactive bar charts.
-- **Comprehensive Overview**: The analysis includes:
-    - A preview of the first few rows of data.
-    - Data schema details and non-null counts.
-    - A check for missing values.
-    - Descriptive statistics for numerical columns.
-    - A bar chart of the Top 10 product categories.
-    - A bar chart showing the average user rating for those top categories.
-    - An insight into how product discounts relate to ratings.
+---
 
-## How to Run
+### **Features**
 
-Follow these steps to run the application on your local machine.
+* **One-Click Analysis**: Start analyzing the dataset instantly from the web interface.
+* **Dynamic Visualizations**: View clear tables and interactive bar charts.
+* **Comprehensive Overview**:
 
-### 1. Prerequisites
+  * Preview of the first few rows of data.
+  * Dataset schema with column names and non-null counts.
+  * Missing value detection.
+  * Descriptive statistics for numerical columns.
+  * Bar chart of **Top 10 product categories**.
+  * Bar chart of **average user ratings** for those top categories.
+  * Insights into the relationship between **discounts** and **ratings**.
 
-- Python 3.6 or newer
-- `pip` for installing packages
+---
 
-### 2. Setup
+### **How to Run**
 
-**a. Clone the Repository (or create the files)**
+#### **1. Prerequisites**
 
-If this were a Git repository, you would clone it. Since you have the files, just ensure they are organized as shown above.
+* Python **3.6+**
+* `pip` (Python package installer)
+
+#### **2. Setup**
+
+**a. Organize the Project**
+Ensure your files are structured like this:
+
+```
+amazon-eda-project/
+│
+├── app.py
+├── requirements.txt
+├── static/
+├── templates/
+├── data/
+│   └── amazon.csv
+```
 
 **b. Download the Dataset**
 
-- Download the dataset from **[Kaggle: Amazon Sale Dataset](https://www.kaggle.com/datasets/sohommajumder/amazon-sale-dataset)**.
-- Rename the downloaded file to `amazon.csv`.
-- Place it in the `data/` folder.
+1. Download the dataset from **Kaggle**: [Amazon Sale Dataset](https://www.kaggle.com/datasets)
+2. Rename the downloaded file to:
+
+```
+amazon.csv
+```
+
+3. Place it inside the `data/` folder.
 
 **c. Install Dependencies**
-
-Open your terminal or command prompt, navigate to the project's root directory (`amazon-eda-project/`), and run:
+In your terminal or command prompt, navigate to the project folder and run:
 
 ```bash
 pip install -r requirements.txt
+```
+
+---
+
+#### **3. Run the Application**
+
+```bash
+python app.py
+```
+
+#### **4. Open in Browser**
+
+Go to:
+
+```
+http://127.0.0.1:5000
+```
+
+You’ll now be able to explore the Amazon dataset interactively.
+
+---
