@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Data Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-slate-50 text-slate-800 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900">Amazon Product Data Explorer</h1>
+            <p class="mt-3 text-lg text-slate-600">Uncover insights from Amazon sales data with a single click.</p>
+        </header>
+
+        <div class="mb-8 p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+            <p class="text-slate-700 text-lg font-medium">Ready to dive into the data? Hit the button below to start the analysis! </p>
+            <button id="processButton" class="mt-4 inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-transform transform hover:scale-105">
+                Analyze Product Data
+            </button>
+            <div id="loadingIndicator" class="hidden mt-4 flex items-center text-blue-600">
+                <div class="spinner mr-3"></div>
+                <span>Crunching the numbers... Please wait.</span>
+            </div>
+            <div id="errorMessage" class="hidden mt-4 p-4 bg-red-100 text-red-700 border border-red-200 rounded-lg"></div>
+        </div>
+
+        <main id="results" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <div class="card lg:col-span-2">
+                <h2 class="card-title">Data Overview</h2>
+                <p class="card-description">A first look at the dataset structure, data types, and any missing information.</p>
+                
+                <h3 class="font-semibold text-lg text-slate-700 mt-6 mb-2">First 5 Rows</h3>
+                <div id="headOutput" class="overflow-x-auto rounded-lg border border-slate-200"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-700 mb-2">Data Schema Info</h3>
+                        <pre id="infoOutput" class="text-sm"></pre>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-700 mb-2">Missing Values Check</h3>
+                        <div id="missingOutput"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card lg:col-span-2">
+                <h2 class="card-title">Descriptive Statistics</h2>
+                <p class="card-description">A statistical summary of the numerical columns, including mean, standard deviation, and quartiles.</p>
+                <div id="describeOutput" class="overflow-x-auto rounded-lg border border-slate-200 mt-4"></div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Top 10 Product Categories</h2>
+                <p class="card-description">The most frequently appearing product categories in the dataset.</p>
+                <div id="topCategoriesOutput" class="mt-4 space-y-3"></div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Average Rating by Category</h2>
+                <p class="card-description">How the top categories stack up in terms of average customer ratings.</p>
+                <div id="avgRatingCategoriesOutput" class="mt-4 space-y-3"></div>
+            </div>
+
+            <div class="card lg:col-span-2">
+                <h2 class="card-title">💡 The Discount-Rating Connection</h2>
+                <p class="card-description">Does a bigger discount correlate with a better rating? Let's find out.</p>
+                <p id="discountRatingInsight" class="mt-4 text-lg font-semibold text-blue-800 bg-blue-50 p-4 rounded-lg"></p>
+            </div>
+
+        </main>
+        
+        <footer class="text-center text-slate-500 mt-12">
+            <p>Analysis complete. Happy exploring! </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
